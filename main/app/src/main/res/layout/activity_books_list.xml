@@ -32,14 +32,7 @@
         app:layout_constraintStart_toStartOf="@+id/toolbar"
         app:layout_constraintTop_toTopOf="@+id/toolbar" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/navigation"
-        app:labelVisibilityMode="labeled"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/navigation"
-        tools:layout_editor_absoluteX="0dp" />
+    <include layout="@layout/bottom_navigation_bar"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
