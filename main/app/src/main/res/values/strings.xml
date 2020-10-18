@@ -2,4 +2,8 @@
     <string name="app_name">BooksSherlock</string>
     <string name="bookListLabel">All Books</string>
     <string name="search_title">Title</string>
+    <string name="home">Home</string>
+    <string name="profile">My Profile</string>
+    <string name="price">Books List</string>
+    <string name="cards">My Cards</string>
 </resources>
