@@ -17,6 +17,7 @@ public class BooksListActivity extends AppCompatActivity {
         final ActionBar toolBar = getSupportActionBar();
 
         final BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+
         navigation.setOnNavigationItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
