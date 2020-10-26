@@ -7,13 +7,13 @@
 ### Todo list 2020/10/12 - 2
 
 #### Tasks
-1. **Create data classes** - Almas + Vera
-2. **Design part** - Yana + Vera
-3. **Check how to separate** **string.xml** -  Almas
-4. **Main page** - Almas
-5. **My profile** - Nikita
-6. **Navigation bar** - Almas
-7. **My Books** - Almas+Niita
-8. **Carts** - Almas+Niita
-9. **Login, Logout** - Almas+Nikita
-10. **Registration** - Almas+Nikita
+1. ~**Create data classes**~ - Almas + Vera
+2. ~**Design part**~ - Yana + Vera
+3. ~**Check how to separate**~ **string.xml** -  Almas
+4. **Navigation bar(on bottom)** - Almas 
+5. **Main page(Books list)** - Almas
+6. **My profile** - Nikita
+8. **My Books** - Yana
+9. **Carts** - Yana
+10. **Login, Logout** - Vera
+11. **Registration** - Vera
