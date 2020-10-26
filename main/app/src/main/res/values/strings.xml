@@ -19,4 +19,10 @@
     <string name="user_profile_settings_btnSelect">Select >></string>
     <string name="user_profile_settings_img_contentDescription">Enter a new address</string>
     <string name="user_profile_settings_txtNewAddress">Enter a new address</string>
+    <string name="user_profile_settings_inputFirstName">First name</string>
+    <string name="user_profile_settings_inputLastName">Last name</string>
+    <string name="user_profile_settings_inputAddress">Address</string>
+    <string name="user_profile_settings_inputZip">Zip code</string>
+    <string name="user_profile_settings_inputCity">City</string>
+    <string name="user_profile_settings_btnContinue">Continue</string>
 </resources>
