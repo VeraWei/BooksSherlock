@@ -1,5 +1,34 @@
 <resources>
     <string name="app_name">BooksSherlock</string>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    <string name="bookDetails_background">Background Img</string>
+    <string name="bookDetails_Title">Missing You</string>
+    <string name="bookDetails_cover">Book Cover</string>
+    <string name="bookDetails_author">By Harlan Coben</string>
+    <string name="bookDetails_publicationDate">Published March 18th 2014 by Dutton</string>
+    <string name="bookDetails_description">It is a profile, like all the others on the online dating site. But as NYPD Detective Kat Donovan focuses on the accompanying picture, she feels her whole world explode, as emotions she’s ignored for decades come crashing down on her. Staring back at her is her ex-fiancé Jeff, the man who shattered her heart—and who she hasn’t seen in 18 years.
+
+Kat feels a spark, wondering if this might be the moment when past tragedies recede and a new world opens up to her. But when she reaches out to the man in the profile, her reawakened hope quickly darkens into suspicion and then terror as an unspeakable conspiracy comes to light, in which monsters prey upon the most vulnerable. </string>
+    <string name="bookDetails_resume">Resume</string>
+    <string name="bookDetails_btnSeeOffer">See Offers</string>
+    <string name="myBooks_avatar">Image Avatar</string>
+    <string name="myBooks_userName">John Snow</string>
+    <string name="myBooks_emailAddress">johnsnow8991@somewhere.com</string>
+    <string name="myBooks_btnSeller">Seller</string>
+    <string name="myBooks_btnBuyer">Buyer</string>
+
+
+    <string name="cart_title">Your Shopping Cart</string>
+    <string name="cart_btnProcess">Finalize Your Purchase</string>
+    <string name="cart_btnDelete">Delete</string>
+    <string name="cart_bookPrice">Price: $19.99</string>
+    <string name="cart_totalPrice">Total Price: $30.99</string>
+
+
+=======
+>>>>>>> temp
     <string name="bookListLabel">All Books</string>
     <string name="search_title">Title</string>
     <string name="home">Home</string>
@@ -16,4 +45,8 @@
     <string name="register">Sign Up</string>
     <string name="re_type_password">Confirm your password</string>
     <string name="your_name">Username</string>
+<<<<<<< HEAD
+=======
+>>>>>>> 474663fb5360b9c8dea2c75c129febc642f2cffb
+>>>>>>> temp
 </resources>
