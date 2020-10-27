@@ -53,7 +53,8 @@ public class BooksListActivity extends AppCompatActivity {
             }
         });
 
-/*
+        final BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+
         navigation.setOnNavigationItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
@@ -78,4 +79,3 @@ public class BooksListActivity extends AppCompatActivity {
     private void doMySearch(String query) {
 
     }
-}

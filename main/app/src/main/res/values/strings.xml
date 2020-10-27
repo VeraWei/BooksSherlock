@@ -6,5 +6,22 @@
     <string name="profile">My Profile</string>
     <string name="price">Books List</string>
     <string name="cards">My Cards</string>
-    <string name="hint">Search books</string>
-</resources>
+    <string name="user_profile_imgUser_contentDescription">User Avatar</string>
+    <string name="user_profile_txtUserName">John SNOW</string>
+    <string name="user_profile_txtUserBIO">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</string>
+    <string name="user_profile_txtGeneralSettings">General Settings</string>
+    <string name="user_profile_imgSettings_contentDescription">Settings</string>
+    <string name="user_profile_txtSettings">Settings</string>
+    <string name="user_profile_imgSignOut_contentDescription">Sign Out</string>
+    <string name="user_profile_txtSignOut">Sign out / Unregister</string>
+    <string name="user_profile_settings_txtStreet">176 Poor House Lane</string>
+    <string name="user_profile_settings_txtCityZip">Springfield Gardens, NY 11413</string>
+    <string name="user_profile_settings_btnSelect">Select >></string>
+    <string name="user_profile_settings_img_contentDescription">Enter a new address</string>
+    <string name="user_profile_settings_txtNewAddress">Enter a new address</string>
+    <string name="user_profile_settings_inputFirstName">First name</string>
+    <string name="user_profile_settings_inputLastName">Last name</string>
+    <string name="user_profile_settings_inputAddress">Address</string>
+    <string name="user_profile_settings_inputZip">Zip code</string>
+    <string name="user_profile_settings_inputCity">City</string>
+    <string name="user_profile_settings_btnContinue">Continue</string>

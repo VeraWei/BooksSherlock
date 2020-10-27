@@ -9,6 +9,7 @@ import lombok.ToString;
 @Data
 public class AvailableBooks {
 
+
     private final int bookId;
 
     private final String image;
