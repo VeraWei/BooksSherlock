@@ -25,3 +25,5 @@
     <string name="user_profile_settings_inputZip">Zip code</string>
     <string name="user_profile_settings_inputCity">City</string>
     <string name="user_profile_settings_btnContinue">Continue</string>
+    <string name="hint">Book search</string>
+</resources>
