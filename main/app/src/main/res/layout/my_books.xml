@@ -18,7 +18,7 @@
         app:layout_constraintHorizontal_bias="0.043"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/myBook_avator" />
+        app:srcCompat="@drawable/mybookavator" />
 
     <TextView
         android:id="@+id/textUserName"
@@ -70,4 +70,6 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgAavatar" />
+
+    <include layout="@layout/bottom_navigation_bar" />
 </androidx.constraintlayout.widget.ConstraintLayout>

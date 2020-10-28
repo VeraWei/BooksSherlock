@@ -1,12 +1,18 @@
 package com.example.bookssherlock;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+
+import com.example.bookssherlock.activities.BooksListActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +29,7 @@ public class LoginFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
 
     public LoginFragment() {
         // Required empty public constructor
@@ -60,5 +67,14 @@ public class LoginFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_login, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        Button btnLogin = view.findViewById(R.id.btn_login);
+        btnLogin.setOnClickListener(v -> startActivity(new Intent(view.getContext(), BooksListActivity.class)));
+        Button signUp = view.findViewById(R.id.btn_reg);
+        signUp.setOnClickListener(v -> startActivity(new Intent(view.getContext(), RegisterActivity.class)));
     }
 }

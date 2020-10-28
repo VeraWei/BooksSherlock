@@ -12,12 +12,12 @@
         android:title="@string/profile" />
 
     <item
-        android:id="@+id/navigation_price"
-        android:icon="@drawable/icons_pricetag"
-        android:title="@string/price" />
-
+        android:id="@+id/navigation_books"
+        android:icon="@drawable/icon_cards"
+        android:title="@string/myBook" />
     <item
         android:id="@+id/navigation_cards"
-        android:icon="@drawable/icon_cards"
+        android:icon="@drawable/icons_pricetag"
         android:title="@string/cards" />
+
 </menu>
