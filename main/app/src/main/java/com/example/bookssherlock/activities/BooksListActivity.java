@@ -1,26 +1,17 @@
 package com.example.bookssherlock.activities;
 
-import android.app.ListActivity;
-import android.app.SearchManager;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bookssherlock.R;
 import com.example.bookssherlock.models.AvailableBooks;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -60,47 +51,7 @@ public class BooksListActivity extends AppCompatActivity {
         });
 
         final BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(item -> {
-            switch (item.getItemId()) {
-                case R.id.navigation_home:
-                    startActivity(new Intent(this, BooksListActivity.class));
-                    finish();
-                    break;
-                case R.id.navigation_profile:
-                    startActivity(new Intent(this, UserProfile.class));
-                    finish();
-                    break;
-                case R.id.navigation_books:
-                    startActivity(new Intent(this, MyBooksActivity.class));
-                    finish();
-                    break;
-                case R.id.navigation_cards:
-                    startActivity(new Intent(this, MyCardsActivity.class));
-                    finish();
-                    break;
-            }
-            return true;
-        });
-/*
-        navigation.setOnNavigationItemSelectedListener(item -> {
-            switch (item.getItemId()) {
-                case R.id.navigation_home:
-                    toolBar.setTitle("Home");
-                    return true;
-                case R.id.navigation_cards:
-                    toolBar.setTitle("Cards");
-                    return true;
-                case R.id.navigation_price:
-                    toolBar.setTitle("Books List");
-                    return true;
-                case R.id.navigation_profile:
-                    toolBar.setTitle("My Profile");
-                    return true;
-                default:
-                    return false;
-            }
-        });
-*/
+        navigation.setOnNavigationItemSelectedListener(new NavigationBarListener(this));
     }
 
 }

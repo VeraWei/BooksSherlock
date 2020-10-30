@@ -1,6 +1,5 @@
 package com.example.bookssherlock.activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -16,27 +15,6 @@ public class MyCardsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.carts);
         final BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(item -> {
-            switch (item.getItemId()) {
-                case R.id.navigation_home:
-                    startActivity(new Intent(this, BooksListActivity.class));
-                    finish();
-                    break;
-                case R.id.navigation_profile:
-                    startActivity(new Intent(this, UserProfile.class));
-                    finish();
-                    break;
-                case R.id.navigation_books:
-                    startActivity(new Intent(this, MyBooksActivity.class));
-                    finish();
-                    break;
-                case R.id.navigation_cards:
-                    startActivity(new Intent(this, MyCardsActivity.class));
-                    finish();
-                    break;
-            }
-            return true;
-
-        });
+        navigation.setOnNavigationItemSelectedListener(new NavigationBarListener(this));
     }
 }
