@@ -27,3 +27,15 @@
 5. Ask teacher about 6 pages, what should we include except for tables - Almas
 6. Add problems and scheduled tasks - ALL
 7. Meet on Friday after the class
+
+
+## Todo list 
+1. Create a script to init all tables -> Almas
+5. Main page(Books list) - Almas
+6. My profile(Display from db, update profile , reuse avatar) - Nikita
+7. Book details, Offers, Carts ->Yana
+9. Login, Logout(save in db, check if email already exists) - Vera
+10. Registration(create new account in db) - Vera
+11. Upload a Book -> Almas
+12. See offers -> Yana
+13. Nikita+Almas - >Book Seller page which is the same for seller and buyer 
