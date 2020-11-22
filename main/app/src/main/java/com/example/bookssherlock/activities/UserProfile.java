@@ -21,7 +21,7 @@ public class UserProfile extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(new NavigationBarListener(this));
         final ImageView img = findViewById(R.id.imgSettings);
         img.setOnClickListener(v -> startActivity(new Intent(this, UserProfileSettings.class)));
-        SharedPreferences sh = getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
+        SharedPreferences sh = getSharedPreferences("storage", Context.MODE_PRIVATE);
         String email = sh.getString("email", null);
 
     }
