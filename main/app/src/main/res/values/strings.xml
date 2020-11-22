@@ -58,4 +58,9 @@ Kat feels a spark, wondering if this might be the moment when past tragedies rec
     <string name="re_type_password">Confirm your password</string>
     <string name="your_name">Username</string>
     <string name="hint">Search for Book</string>
+    <string name="upload">Upload a book</string>
+    <string name="chooseBook">Choose Book</string>
+    <string name="choosePrice">Choose Price</string>
+    <string name="uploadBook">Upload new book</string>
+    <string name="uploadBtn">Upload</string>
 </resources>

@@ -1,8 +1,6 @@
 package com.example.bookssherlock.activities;
 
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -11,12 +9,11 @@ import android.widget.SearchView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bookssherlock.R;
+import com.example.bookssherlock.adapters.BookListAdapter;
 import com.example.bookssherlock.models.AvailableBooks;
 import com.example.bookssherlock.sqlite.DbHelper;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class BooksListActivity extends AppCompatActivity {
@@ -30,18 +27,17 @@ public class BooksListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_books_list);
         this.helper = DbHelper.getInstance(this);
+        this.books = this.helper.booksList();
         SearchView searchView = findViewById(R.id.searchView);
         ListView listView = findViewById(R.id.listView);
-        this.books = this.booksList();
         listView.setOnItemClickListener((parent, view, position, id) -> {
             Intent intent = new Intent(this, BookActivity.class);
             intent.putExtra("book", this.books.get(position));
             startActivity(intent);
         });
-        SQLiteDatabase readableDatabase = this.helper.getReadableDatabase();
-        ArrayAdapter<AvailableBooks> adapter = new ArrayAdapter<>(
+        ArrayAdapter<AvailableBooks> adapter = new BookListAdapter(
                 this,
-                android.R.layout.simple_list_item_1,
+                R.layout.list_book,
                 this.books
         );
         listView.setAdapter(adapter);
@@ -59,7 +55,7 @@ public class BooksListActivity extends AppCompatActivity {
             }
         });
 
-        final BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        final BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(new NavigationBarListener(this));
     }
 
@@ -69,22 +65,5 @@ public class BooksListActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
-    private List<AvailableBooks> booksList() {
-        final List<AvailableBooks> books = new ArrayList<>();
-        SQLiteDatabase readableDatabase = this.helper.getReadableDatabase();
-        Cursor cursor = readableDatabase.rawQuery("SELECT * from books;", null);
-        while (cursor.moveToNext()) {
-            books.add(
-                    new AvailableBooks(
-                            cursor.getInt(cursor.getColumnIndex("id")),
-                            cursor.getString(cursor.getColumnIndex("icon")),
-                            cursor.getString(cursor.getColumnIndex("title")),
-                            cursor.getString(cursor.getColumnIndex("description")),
-                            cursor.getString(cursor.getColumnIndex("author"))
-                    )
-            );
-        }
-        return books;
-    }
 }
 
