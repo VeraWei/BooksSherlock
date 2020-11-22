@@ -23,6 +23,8 @@ public class BooksListActivity extends AppCompatActivity {
 
     private DbHelper helper;
 
+    private List<AvailableBooks> books;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,13 +32,17 @@ public class BooksListActivity extends AppCompatActivity {
         this.helper = DbHelper.getInstance(this);
         SearchView searchView = findViewById(R.id.searchView);
         ListView listView = findViewById(R.id.listView);
-        listView.setOnItemClickListener((parent, view, position, id) -> startActivity(new Intent(this, BookActivity.class)));
+        this.books = this.booksList();
+        listView.setOnItemClickListener((parent, view, position, id) -> {
+            Intent intent = new Intent(this, BookActivity.class);
+            intent.putExtra("book", this.books.get(position));
+            startActivity(intent);
+        });
         SQLiteDatabase readableDatabase = this.helper.getReadableDatabase();
-        List<AvailableBooks> availableBooks = this.booksList();
         ArrayAdapter<AvailableBooks> adapter = new ArrayAdapter<>(
                 this,
                 android.R.layout.simple_list_item_1,
-                availableBooks
+                this.books
         );
         listView.setAdapter(adapter);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -71,8 +77,10 @@ public class BooksListActivity extends AppCompatActivity {
             books.add(
                     new AvailableBooks(
                             cursor.getInt(cursor.getColumnIndex("id")),
+                            cursor.getString(cursor.getColumnIndex("icon")),
+                            cursor.getString(cursor.getColumnIndex("title")),
                             cursor.getString(cursor.getColumnIndex("description")),
-                            cursor.getString(cursor.getColumnIndex("title"))
+                            cursor.getString(cursor.getColumnIndex("author"))
                     )
             );
         }
