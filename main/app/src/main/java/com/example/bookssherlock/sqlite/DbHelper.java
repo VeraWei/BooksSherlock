@@ -25,7 +25,6 @@ public class DbHelper extends SQLiteOpenHelper {
         context.deleteDatabase("books");
     }
 
-
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table users(id INTEGER PRIMARY KEY,email varchar(255) unique,name varchar(255),password varchar(255));\n");

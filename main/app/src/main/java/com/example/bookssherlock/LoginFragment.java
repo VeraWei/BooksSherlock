@@ -1,6 +1,8 @@
 package com.example.bookssherlock;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -72,7 +74,14 @@ public class LoginFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         Button btnLogin = view.findViewById(R.id.btn_login);
-        btnLogin.setOnClickListener(v -> startActivity(new Intent(view.getContext(), BooksListActivity.class)));
+        btnLogin.setOnClickListener(v -> {
+            startActivity(new Intent(view.getContext(), BooksListActivity.class));
+            SharedPreferences sharedpreferences = this.getActivity().getSharedPreferences("storage", Context.MODE_PRIVATE);
+            SharedPreferences.Editor edit = sharedpreferences.edit();
+            //TODO get email from db Vera do it please
+            edit.putString("email", "test@gmail.com");
+            edit.apply();
+        });
         Button signUp = view.findViewById(R.id.btn_reg);
         signUp.setOnClickListener(v -> startActivity(new Intent(view.getContext(), RegisterActivity.class)));
     }

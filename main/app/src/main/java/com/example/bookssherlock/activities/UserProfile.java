@@ -1,6 +1,8 @@
 package com.example.bookssherlock.activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.ImageView;
 
@@ -19,5 +21,8 @@ public class UserProfile extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(new NavigationBarListener(this));
         final ImageView img = findViewById(R.id.imgSettings);
         img.setOnClickListener(v -> startActivity(new Intent(this, UserProfileSettings.class)));
+        SharedPreferences sh = getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
+        String email = sh.getString("email", null);
+
     }
 }
