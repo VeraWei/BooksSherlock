@@ -79,7 +79,7 @@ public class LoginFragment extends Fragment {
             SharedPreferences sharedpreferences = this.getActivity().getSharedPreferences("storage", Context.MODE_PRIVATE);
             SharedPreferences.Editor edit = sharedpreferences.edit();
             //TODO get email from db Vera do it please
-            edit.putString("email", "test@gmail.com");
+            edit.putString("email", "buyer@gmail.com");
             edit.apply();
         });
         Button signUp = view.findViewById(R.id.btn_reg);
