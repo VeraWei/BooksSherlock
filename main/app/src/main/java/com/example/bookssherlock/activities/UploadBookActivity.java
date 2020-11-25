@@ -59,7 +59,7 @@ public class UploadBookActivity extends AppCompatActivity {
         button.setOnClickListener(v -> {
             this.save(email, Integer.parseInt(price.getText().toString()), chooseBook.getText().toString());
             AlertDialog alert = new AlertDialog.Builder(this).create();
-            alert.setTitle("Book was upload");
+            alert.setTitle("Book was uploaded");
             alert.setButton(DialogInterface.BUTTON_POSITIVE, "OK", (dialog, which) -> startActivity(new Intent(this, MyBooksActivity.class)));
             alert.show();
         });

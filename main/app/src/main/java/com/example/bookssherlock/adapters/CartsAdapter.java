@@ -1,6 +1,8 @@
 package com.example.bookssherlock.adapters;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.database.sqlite.SQLiteDatabase;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,13 +50,18 @@ public class CartsAdapter extends ArrayAdapter<Carts> {
         final ImageView icon = row.findViewById(R.id.bookIcon);
         icon.setImageResource(drawable);
         final TextView title = row.findViewById(R.id.bookTitle);
-        title.setText("Price: "+cart.getPrice());
+        title.setText("Price: " + cart.getPrice());
         final Button button = row.findViewById(R.id.buyBtn);
         button.setOnClickListener(v -> {
             this.createOrder(position);
             this.carts.remove(position);
             this.notifyDataSetChanged();
 
+            AlertDialog alert = new AlertDialog.Builder(getContext()).create();
+            alert.setTitle("The order has processed. The total cost of the books is " + cart.getPrice());
+            //alert to display that order has been processed
+            alert.setButton(DialogInterface.BUTTON_POSITIVE, "OK", (dialog, which) -> {});
+            alert.show();
         });
         return row;
     }
@@ -69,6 +76,6 @@ public class CartsAdapter extends ArrayAdapter<Carts> {
                         "((select id from users where email=?),?,?,?,'SOLD');",
                 new Object[]{this.email, cart.getSellerBookId(), cart.getPrice(), format.format(new Date())}
         );
-        writableDatabase.execSQL("DELETE from carts where id = ?",new Object[]{cart.getCartId()});
+        writableDatabase.execSQL("DELETE from carts where id = ?", new Object[]{cart.getCartId()});
     }
 }

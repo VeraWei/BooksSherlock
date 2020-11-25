@@ -42,8 +42,6 @@ public class DbHelper extends SQLiteOpenHelper {
         db.execSQL("INSERT into books(id,title,description,icon,author) values (1,'War and peace','War and peace','" + warPeace + "','Tolstoy'),(2,'Crime and Punishment','Crime and Punishment','" + crime + "','Dostoevskiy');");
         db.execSQL("INSERT into users(id,email,name,password) values (1,'buyer@gmail.com','dsd','sdsd'),(2,'seller@gmail.com','dsd','sdsd')");
         db.execSQL("INSERT into seller_book(seller_id,price,book_id,date) values (2,200,1,'2020-07-10');");
-        db.execSQL("INSERT into carts(seller_book_id,user_id) values (1,1);");
-
     }
 
     public List<AvailableBooks> booksList() {

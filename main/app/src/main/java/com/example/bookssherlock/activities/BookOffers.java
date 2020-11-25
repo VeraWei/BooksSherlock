@@ -1,7 +1,5 @@
 package com.example.bookssherlock.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,31 +7,29 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.SparseBooleanArray;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bookssherlock.R;
-import com.example.bookssherlock.models.AvailableBooks;
 import com.example.bookssherlock.models.db.SellerBooks;
 import com.example.bookssherlock.sqlite.DbHelper;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class BookOffers extends AppCompatActivity {
 
-
     private DbHelper helper;
-    private List<SellerBooks> offers;
-    private int bookID;
-    private String email;
 
+    private List<SellerBooks> offers;
+
+    private int bookID;
+
+    private String email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +42,9 @@ public class BookOffers extends AppCompatActivity {
         this.offers = this.offers();
         final SharedPreferences sh = getSharedPreferences("storage", Context.MODE_PRIVATE);
         this.email = sh.getString("email", null);
+
+        final BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(new NavigationBarListener(this));
 
         ArrayAdapter<SellerBooks> adapter = new ArrayAdapter<>(
                 this,
@@ -73,12 +72,7 @@ public class BookOffers extends AppCompatActivity {
                 for (SellerBooks cart : checkedBooks) {
                     writableDatabase.execSQL("INSERT INTO carts(user_id,seller_book_id) values ((select id from users where email = ?),?)", new Object[]{email,cart.getId()});
                 }
-            }
-            SQLiteDatabase readableDatabase = helper.getReadableDatabase();
-            Cursor c = readableDatabase.rawQuery("SELECT count(*) as count from carts",null);
-            while(c.moveToNext()){
-               int count =  c.getInt(c.getColumnIndex("count"));
-                System.out.println(count);
+                startActivity(new Intent(this,MyCardsActivity.class));
             }
         });
 
