@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_register"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     android:orientation="vertical"
-    tools:context=".RegisterActivity"
-    android:background="@drawable/background">
+    tools:context=".activities.RegisterActivity">
 
     <TextView
         android:id="@+id/tv_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="40dp"
         android:layout_marginBottom="5dp"
         android:text="@string/register"
         android:textAlignment="center"
@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@id/et_name"
-        android:padding="24dp"
+        android:padding="12dp"
         android:text="@string/your_name"
         android:textColor="@color/orange" />
 
@@ -33,66 +33,71 @@
         android:id="@+id/et_name"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:hint="@string/your_name"
-        android:textColorHint="@color/white"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="10dp"
-        android:padding="15dp"
+        android:backgroundTint="@color/white"
+        android:hint="@string/your_name"
         android:inputType="textPersonName"
-        android:textSize="15sp"
-        android:backgroundTint="@color/white" />
+        android:padding="12dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/labelEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@id/et_email"
-        android:padding="24dp"
+        android:layout_above="@id/email"
+        android:padding="12dp"
         android:text="@string/e_mail"
         android:textColor="@color/orange" />
+
     <EditText
-        android:id="@+id/et_email"
+        android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:hint="@string/e_mail"
-        android:textColorHint="@color/white"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="10dp"
-        android:padding="15dp"
+        android:backgroundTint="@color/white"
+        android:hint="@string/e_mail"
         android:inputType="textEmailAddress"
-        android:textSize="15sp"
-        android:backgroundTint="@color/white" />
+        android:padding="12sp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/labePass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@id/et_password"
-        android:padding="24dp"
+        android:layout_above="@id/password"
+        android:padding="12dp"
         android:text="@string/password"
         android:textColor="@color/orange" />
+
     <EditText
-        android:id="@+id/et_password"
+        android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:hint="@string/password"
-        android:textColorHint="@color/white"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="10dp"
-        android:padding="15dp"
+        android:backgroundTint="@color/white"
+        android:hint="@string/password"
         android:inputType="textPassword"
-        android:textSize="15sp"
-        android:backgroundTint="@color/white" />
+        android:padding="12dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/conPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@id/et_repassword"
-        android:padding="24dp"
+        android:padding="12dp"
         android:text="@string/re_type_password"
         android:textColor="@color/orange" />
 
@@ -100,14 +105,15 @@
         android:id="@+id/et_repassword"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:hint="@string/re_type_password"
-        android:textColorHint="@color/white"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:padding="15dp"
+        android:backgroundTint="@color/white"
+        android:hint="@string/re_type_password"
         android:inputType="textPassword"
-        android:textSize="15sp"
-        android:backgroundTint="@color/white" />
+        android:padding="12dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="15sp" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -118,12 +124,12 @@
             android:id="@+id/btn_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginBottom="30dp"
-            android:layout_centerInParent="true"
-            android:textColor="@android:color/white"
-            android:text="@string/register"/>
+            android:text="@string/register"
+            android:textColor="@android:color/white" />
 
     </RelativeLayout>
 

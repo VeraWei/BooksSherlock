@@ -62,6 +62,26 @@ public class DbHelper extends SQLiteOpenHelper {
         return books;
     }
 
+    public String getPwd(String arg) {
+        SQLiteDatabase readableDatabase = getReadableDatabase();
+        Cursor cursor = readableDatabase.rawQuery("SELECT * from users WHERE email = "+ arg + ";", null);
+
+        // TODO get user password
+//        while (cursor.moveToNext()) {
+//            user.add(
+//                    new AvailableBooks(
+//                            cursor.getInt(cursor.getColumnIndex("id")),
+//                            cursor.getString(cursor.getColumnIndex("icon")),
+//                            cursor.getString(cursor.getColumnIndex("title")),
+//                            cursor.getString(cursor.getColumnIndex("description")),
+//                            cursor.getString(cursor.getColumnIndex("author"))
+//                    )
+//            );
+//        }
+
+        return "";
+    }
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
