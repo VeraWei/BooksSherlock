@@ -16,6 +16,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.bookssherlock.R;
+import com.example.bookssherlock.models.Credentials;
 import com.example.bookssherlock.models.LoginPage;
 import com.example.bookssherlock.sqlite.DbHelper;
 
@@ -67,6 +68,7 @@ public class LoginFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        this.helper = DbHelper.getInstance(getContext());
     }
 
     @Override
@@ -85,16 +87,16 @@ public class LoginFragment extends Fragment {
         EditText password = view.findViewById(R.id.password);
 
         btnLogin.setOnClickListener(v -> {
-            // TODO compare with real data in database;
-            String mockEmail = "buyer@gmail.com";
-            String pass = "sdsd";
+            String userEmail = email.getText().toString();
+            String pass = password.getText().toString();
+            final Credentials credentials = this.helper.getUser(userEmail,pass);
 
-            if ((email.getText().toString().equals(mockEmail)) && (password.getText().toString().equals(pass))) {
-                startActivity(new Intent(view.getContext(), BooksListActivity.class));
+            if (credentials != null) {
                 SharedPreferences sharedpreferences = this.getActivity().getSharedPreferences("storage", Context.MODE_PRIVATE);
                 SharedPreferences.Editor edit = sharedpreferences.edit();
-                edit.putString("email", mockEmail);
+                edit.putString("email", userEmail);
                 edit.apply();
+                startActivity(new Intent(view.getContext(), BooksListActivity.class));
             } else {
                 Context context = getContext();
                 CharSequence text = "User is not exist!";

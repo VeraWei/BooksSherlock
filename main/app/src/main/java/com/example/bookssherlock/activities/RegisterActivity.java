@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.bookssherlock.MainActivity;
 import com.example.bookssherlock.R;
 import com.example.bookssherlock.sqlite.DbHelper;
 
@@ -29,46 +30,41 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register_activity);
+        this.helper = DbHelper.getInstance(this);
 
-        // TODO Add real data from form
-//        String user = findViewById(R.id.et_name).getContext().toString();
-//        String email = findViewById(R.id.email).getContext().toString();
-//        String pwd = findViewById(R.id.password).getContext().toString();
-//        String re_pwd = findViewById(R.id.et_repassword).getContext().toString();
-
-        String user = "qiuming";
-        String email = "qiuming@gmail.com";
-        String pwd = "123456";
-        String re_pwd = "123456";
+        EditText  userText = findViewById(R.id.et_name);
+        EditText emailText = findViewById(R.id.email);
+        EditText pwdText = findViewById(R.id.password);
+        EditText rePsdText = findViewById(R.id.et_repassword);
 
         final Button btn = findViewById(R.id.btn_register);
 
         btn.setOnClickListener(v -> {
 
-            if (TextUtils.isEmpty(user)) {
+            if (TextUtils.isEmpty(userText.getText().toString())) {
 
                 this.noticeText = "Username is empty";
                 this.notification();
 
-            } else if (TextUtils.isEmpty(email)) {
+            } else if (TextUtils.isEmpty(emailText.getText().toString())) {
 
                 this.noticeText = "Email is empty";
                 this.notification();
 
-            } else if (TextUtils.isEmpty(pwd)) {
+            } else if (TextUtils.isEmpty(pwdText.getText().toString())) {
 
                 this.noticeText = "Password is empty";
                 this.notification();
 
-            }  else if (!pwd.equals(re_pwd)) {
+            }  else if (!pwdText.getText().toString().equals(rePsdText.getText().toString())) {
 
                 this.noticeText = "You should enter the same characters for password";
                 this.notification();
 
             } else {
 
-//                this.save(email, user, pwd);
-                startActivity(new Intent(this, BooksListActivity.class));
+                this.save(emailText.getText().toString(), userText.getText().toString(), pwdText.getText().toString());
+                startActivity(new Intent(this, MainActivity.class));
                 finish();
             }
         });
@@ -76,11 +72,10 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void save(final String email, final String name, final String password) {
         SQLiteDatabase writableDatabase = this.helper.getWritableDatabase();
-        final SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
         writableDatabase.execSQL(
-                "INSERT INTO users (user_id, email,name,password) values (?,?,?,?);",
-                new String[]{email, name, password, format.format(new Date())}
+                "INSERT INTO users (email,name,password) values (?,?,?);",
+                new String[]{email, name, password}
         );
     }
 
