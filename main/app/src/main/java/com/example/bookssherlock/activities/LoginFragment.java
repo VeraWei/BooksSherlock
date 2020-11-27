@@ -1,4 +1,4 @@
-package com.example.bookssherlock;
+package com.example.bookssherlock.activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,12 +8,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.bookssherlock.activities.BooksListActivity;
+import com.example.bookssherlock.R;
+import com.example.bookssherlock.models.Credentials;
+import com.example.bookssherlock.models.LoginPage;
+import com.example.bookssherlock.sqlite.DbHelper;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -26,6 +31,8 @@ public class LoginFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
+    private DbHelper helper;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -61,6 +68,7 @@ public class LoginFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        this.helper = DbHelper.getInstance(getContext());
     }
 
     @Override
@@ -74,13 +82,29 @@ public class LoginFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         Button btnLogin = view.findViewById(R.id.btn_login);
+
+        EditText email = view.findViewById(R.id.email);
+        EditText password = view.findViewById(R.id.password);
+
         btnLogin.setOnClickListener(v -> {
-            startActivity(new Intent(view.getContext(), BooksListActivity.class));
-            SharedPreferences sharedpreferences = this.getActivity().getSharedPreferences("storage", Context.MODE_PRIVATE);
-            SharedPreferences.Editor edit = sharedpreferences.edit();
-            //TODO get email from db Vera do it please
-            edit.putString("email", "buyer@gmail.com");
-            edit.apply();
+            String userEmail = email.getText().toString();
+            String pass = password.getText().toString();
+            final Credentials credentials = this.helper.getUser(userEmail,pass);
+
+            if (credentials != null) {
+                SharedPreferences sharedpreferences = this.getActivity().getSharedPreferences("storage", Context.MODE_PRIVATE);
+                SharedPreferences.Editor edit = sharedpreferences.edit();
+                edit.putString("email", userEmail);
+                edit.apply();
+                startActivity(new Intent(view.getContext(), BooksListActivity.class));
+            } else {
+                Context context = getContext();
+                CharSequence text = "User is not exist!";
+                int duration = Toast.LENGTH_SHORT;
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+            }
+
         });
         Button signUp = view.findViewById(R.id.btn_reg);
         signUp.setOnClickListener(v -> startActivity(new Intent(view.getContext(), RegisterActivity.class)));

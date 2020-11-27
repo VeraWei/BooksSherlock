@@ -8,6 +8,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.bookssherlock.activities.LoginFragment;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {

@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.bookssherlock.R;
 import com.example.bookssherlock.models.AvailableBooks;
+import com.example.bookssherlock.models.Credentials;
+import com.example.bookssherlock.models.LoginPage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +34,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table users(id INTEGER PRIMARY KEY,email varchar(255) unique,name varchar(255),password varchar(255));\n");
+        db.execSQL("create table users(id INTEGER PRIMARY KEY AUTOINCREMENT,email varchar(255) unique,name varchar(255),password varchar(255));\n");
         db.execSQL("create table books(id int primary key,title varchar(255),description varchar(255),rating int,icon text,author text);\n");
         db.execSQL("create table seller_book(id integer primary key AUTOINCREMENT,seller_id int references users(id),price int,book_id int references books(id),date text);\n");
         db.execSQL("create table orders(id integer primary key AUTOINCREMENT,buy_id int references users(id),seller_b_id int references seller_book (id),price int,date text,status varchar(255))");
@@ -65,5 +67,18 @@ public class DbHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
+    }
+
+    public Credentials getUser(String userEmail, String pass) {
+        SQLiteDatabase readableDatabase = getReadableDatabase();
+        Cursor cursor = readableDatabase.rawQuery("SELECT password,email from users WHERE email = ? and password = ? limit 1", new String[]{userEmail,pass});
+        LoginPage login = null;
+        while(cursor.moveToNext()){
+            login = new LoginPage(
+                    cursor.getString(cursor.getColumnIndex("email")),
+                    cursor.getString(cursor.getColumnIndex("password"))
+            );
+        }
+        return login;
     }
 }
