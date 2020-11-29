@@ -2,37 +2,32 @@ package com.example.bookssherlock.activities;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.AttributeSet;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bookssherlock.MainActivity;
 import com.example.bookssherlock.R;
 import com.example.bookssherlock.sqlite.DbHelper;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 public class RegisterActivity extends AppCompatActivity {
 
     private DbHelper helper;
     private String noticeText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register_activity);
         this.helper = DbHelper.getInstance(this);
 
-        EditText  userText = findViewById(R.id.et_name);
+        EditText userText = findViewById(R.id.et_name);
         EditText emailText = findViewById(R.id.email);
         EditText pwdText = findViewById(R.id.password);
         EditText rePsdText = findViewById(R.id.et_repassword);
@@ -56,13 +51,15 @@ public class RegisterActivity extends AppCompatActivity {
                 this.noticeText = "Password is empty";
                 this.notification();
 
-            }  else if (!pwdText.getText().toString().equals(rePsdText.getText().toString())) {
+            } else if (!pwdText.getText().toString().equals(rePsdText.getText().toString())) {
 
                 this.noticeText = "You should enter the same characters for password";
                 this.notification();
 
+            } else if (this.emailExists(emailText.getText().toString())) {
+                this.noticeText = "User with given email already exists";
+                this.notification();
             } else {
-
                 this.save(emailText.getText().toString(), userText.getText().toString(), pwdText.getText().toString());
                 startActivity(new Intent(this, MainActivity.class));
                 finish();
@@ -77,6 +74,16 @@ public class RegisterActivity extends AppCompatActivity {
                 "INSERT INTO users (email,name,password) values (?,?,?);",
                 new String[]{email, name, password}
         );
+    }
+
+    private boolean emailExists(final String email) {
+        SQLiteDatabase readableDatabase = this.helper.getReadableDatabase();
+        Cursor cursor = readableDatabase.rawQuery("SELECT count(*) as cnt from users WHERE email = ? ", new String[]{email});
+        if (cursor.moveToNext()) {
+            return cursor.getInt(cursor.getColumnIndex("cnt")) != 0;
+        } else {
+            return false;
+        }
     }
 
     private void notification() {

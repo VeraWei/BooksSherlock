@@ -39,10 +39,10 @@ public class BookOffers extends AppCompatActivity {
 
         this.helper = DbHelper.getInstance(this);
         ListView offerList = findViewById(R.id.offerList);
-        this.offers = this.offers();
         final SharedPreferences sh = getSharedPreferences("storage", Context.MODE_PRIVATE);
         this.email = sh.getString("email", null);
 
+        this.offers = this.offers();
         final BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(new NavigationBarListener(this));
 
@@ -75,8 +75,6 @@ public class BookOffers extends AppCompatActivity {
                 startActivity(new Intent(this,MyCardsActivity.class));
             }
         });
-
-
     }
 
 
@@ -90,7 +88,7 @@ public class BookOffers extends AppCompatActivity {
 
         final List<SellerBooks> offers = new ArrayList<>();
         SQLiteDatabase readableDatabase = this.helper.getReadableDatabase();
-        Cursor cursor = readableDatabase.rawQuery("SELECT s.price as price,b.title as title,s.id as id,s.date as date from seller_book s inner join books b on b.id = s.book_id WHERE b.id = ?;", new String[]{String.valueOf(this.bookID)});
+        Cursor cursor = readableDatabase.rawQuery("SELECT s.price as price,b.title as title,s.id as id,s.date as date from seller_book s inner join books b on b.id = s.book_id WHERE b.id = ? and s.seller_id != (select id from users where email = ?);", new String[]{String.valueOf(this.bookID),this.email});
         while (cursor.moveToNext()) {
             offers.add(
                     new SellerBooks(
