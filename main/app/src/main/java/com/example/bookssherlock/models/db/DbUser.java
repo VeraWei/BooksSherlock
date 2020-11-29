@@ -2,15 +2,17 @@ package com.example.bookssherlock.models.db;
 
 import com.example.bookssherlock.models.Credentials;
 
-public class DbUser implements Credentials, Identifiable {
+import java.io.Serializable;
 
-    private final String username;
+public class DbUser implements Credentials, Identifiable, Serializable {
+
+    private String username;
 
     private final String email;
 
     private final String password;
 
-    private final String address;
+    private String address;
 
     private final int id;
 
@@ -26,6 +28,8 @@ public class DbUser implements Credentials, Identifiable {
         return this.username;
     }
 
+    public void setUserName(String newUserName) { this.username = newUserName; }
+
     @Override
     public String getEmail() {
         return this.email;
@@ -40,6 +44,8 @@ public class DbUser implements Credentials, Identifiable {
     public String getAddress() {
         return address;
     }
+
+    public void setAddress(String newAddress) { this.address = newAddress; }
 
     @Override
     public int getId() {

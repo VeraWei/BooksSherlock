@@ -5,7 +5,6 @@
     <string name="bookDetails_cover">Book Cover</string>
     <string name="user_profile_imgUser_contentDescription">User Avatar</string>
     <string name="user_profile_txtUserName">John SNOW</string>
-    <string name="user_profile_txtUserBIO">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</string>
     <string name="user_profile_txtGeneralSettings">General Settings</string>
     <string name="user_profile_imgSettings_contentDescription">Settings</string>
     <string name="user_profile_txtSettings">Settings</string>
@@ -16,12 +15,9 @@
     <string name="user_profile_settings_btnSelect">Select >></string>
     <string name="user_profile_settings_img_contentDescription">Enter a new address</string>
     <string name="user_profile_settings_txtNewAddress">Enter a new address</string>
-    <string name="user_profile_settings_inputFirstName">First name</string>
-    <string name="user_profile_settings_inputLastName">Last name</string>
+    <string name="user_profile_settings_inputFirstName">Full Name</string>
     <string name="user_profile_settings_inputAddress">Address</string>
-    <string name="user_profile_settings_inputZip">Zip code</string>
-    <string name="user_profile_settings_inputCity">City</string>
-    <string name="user_profile_settings_btnContinue">Continue</string>
+    <string name="user_profile_settings_btnUpdate">Update</string>
     <string name="bookDetails_author">By Harlan Coben</string>
     <string name="bookDetails_publicationDate">Published March 18th 2014 by Dutton</string>
     <string name="bookDetails_description">It is a profile, like all the others on the online dating site. But as NYPD Detective Kat Donovan focuses on the accompanying picture, she feels her whole world explode, as emotions she’s ignored for decades come crashing down on her. Staring back at her is her ex-fiancé Jeff, the man who shattered her heart—and who she hasn’t seen in 18 years.

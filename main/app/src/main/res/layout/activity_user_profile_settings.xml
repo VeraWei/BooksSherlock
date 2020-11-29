@@ -39,16 +39,6 @@
             android:textColor="@color/black"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/txtCityZip"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5sp"
-            android:text="@string/user_profile_settings_txtCityZip"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textStyle="bold" />
-
     </LinearLayout>
 
     <Button
@@ -89,7 +79,7 @@
 
     <EditText
         android:id="@+id/inputFirstName"
-        android:layout_width="110dp"
+        android:layout_width="260dp"
         android:layout_height="40dp"
         android:layout_marginStart="76dp"
         android:layout_marginTop="32dp"
@@ -101,54 +91,6 @@
         android:textColorHint="@color/black"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNewAddress" />
-
-    <EditText
-        android:id="@+id/inputZip"
-        android:layout_width="110dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/user_profile_settings_input"
-        android:ems="10"
-        android:hint="@string/user_profile_settings_inputZip"
-        android:inputType="textPersonName"
-        android:textAlignment="center"
-        android:textColorHint="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputAddress" />
-
-    <EditText
-        android:id="@+id/inputCity"
-        android:layout_width="110dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/user_profile_settings_input"
-        android:ems="10"
-        android:hint="@string/user_profile_settings_inputCity"
-        android:inputType="textPersonName"
-        android:textAlignment="center"
-        android:textColorHint="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/inputZip"
-        app:layout_constraintTop_toBottomOf="@+id/inputAddress" />
-
-    <EditText
-        android:id="@+id/inputLastName"
-        android:layout_width="110dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/user_profile_settings_input"
-        android:ems="10"
-        android:hint="@string/user_profile_settings_inputLastName"
-        android:inputType="textPersonName"
-        android:textAlignment="center"
-        android:textColorHint="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/inputFirstName"
         app:layout_constraintTop_toBottomOf="@+id/txtNewAddress" />
 
     <EditText
@@ -168,15 +110,15 @@
         app:layout_constraintTop_toBottomOf="@+id/inputFirstName" />
 
     <Button
-        android:id="@+id/btnContinue"
+        android:id="@+id/btnUpdate"
         android:layout_width="140dp"
         android:layout_height="40dp"
-        android:layout_marginStart="196dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="132dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/user_profile_settings_buttons"
-        android:text="@string/user_profile_settings_btnContinue"
+        android:text="@string/user_profile_settings_btnUpdate"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputCity" />
+        app:layout_constraintTop_toBottomOf="@+id/inputAddress" />
 
     <include layout="@layout/bottom_navigation_bar" />
 

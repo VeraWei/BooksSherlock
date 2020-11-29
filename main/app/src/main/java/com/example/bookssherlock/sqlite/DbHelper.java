@@ -34,7 +34,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table users(id INTEGER PRIMARY KEY AUTOINCREMENT,email varchar(255) unique,name varchar(255),password varchar(255));\n");
+        db.execSQL("create table users(id INTEGER PRIMARY KEY,email varchar(255) unique,name varchar(255),password varchar(255));\n");
         db.execSQL("create table books(id int primary key,title varchar(255),description varchar(255),rating int,icon text,author text);\n");
         db.execSQL("create table seller_book(id integer primary key AUTOINCREMENT,seller_id int references users(id),price int,book_id int references books(id),date text);\n");
         db.execSQL("create table orders(id integer primary key AUTOINCREMENT,buy_id int references users(id),seller_b_id int references seller_book (id),price int,date text,status varchar(255))");
@@ -42,7 +42,7 @@ public class DbHelper extends SQLiteOpenHelper {
         final String warPeace = this.context.getResources().getResourceEntryName(R.drawable.warpeace);
         final String crime = this.context.getResources().getResourceEntryName(R.drawable.crime);
         db.execSQL("INSERT into books(id,title,description,icon,author) values (1,'War and peace','War and peace','" + warPeace + "','Tolstoy'),(2,'Crime and Punishment','Crime and Punishment','" + crime + "','Dostoevskiy');");
-        db.execSQL("INSERT into users(id,email,name,password) values (1,'buyer@gmail.com','dsd','sdsd'),(2,'seller@gmail.com','dsd','sdsd')");
+        db.execSQL("INSERT into users(email,name,password,address) values ('buyer@gmail.com','dsd','sdsd','Bom'),('seller@gmail.com','dsd','sdsd','Dom')");
         db.execSQL("INSERT into seller_book(seller_id,price,book_id,date) values (2,200,1,'2020-07-10');");
     }
 
