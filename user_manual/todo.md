@@ -57,3 +57,11 @@
 -Disclaimer: Declares it is your group’s original work. State in detail the differences between this project and the previous one if this project is extended from your previous work. It is good to have point-to-point comparison with screen captures of this project and the previous one. - Everyone tell the difference between similar apps and our app
 
 -References - Everyone
+
+
+## Video recording todo
+1. Vera talks about Login/Sign Up ,validation, shared preferrences
+2. Almas - Book list, Navigation Bar, UPload Book
+3. Yana - Books offer page, Book details, User Carts
+4. Nikita - All things related to user and how it works with DB
+Everyone not more than 5 min
