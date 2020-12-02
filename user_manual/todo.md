@@ -46,17 +46,13 @@
 
 
 ## Report
--Overview about the application: It is a description about the application. - Cover page + drt descr + abstract - **Yana**
--Features and technical challenges: It lists all the features, technical challenges, techniques applied, etc. in the application. - **Yana**
-
--Installation guide: It describes the requirement of the application and how to run the application. - **Almas**
--Functions and user manual: For  each of the  functions, it shows the step-by-stepusage with the help of screenshot in each step. - **Everyone will do their own part**
-
--Incomplete  functions:  It  describes  those  functions  you planned  in  the  proposal,  but  not  yet implemented in the project. - **Yana**, everyone will tell what they didn't implement
-
--Disclaimer: Declares it is your group’s original work. State in detail the differences between this project and the previous one if this project is extended from your previous work. It is good to have point-to-point comparison with screen captures of this project and the previous one. - Everyone tell the difference between similar apps and our app
-
--References - Everyone
+1. Overview about the application: It is a description about the application. - Cover page + drt descr + abstract(**Yana**)
+2. Features and technical challenges: It lists all the features, technical challenges, techniques applied, etc. in the application. - **Yana**
+3. Installation guide: It describes the requirement of the application and how to run the application. - **Almas**
+4. Functions and user manual: For  each of the  functions, it shows the step-by-stepusage with the help of screenshot in each step. - **Everyone will do their own part**
+5. Incomplete  functions:  It  describes  those  functions  you planned  in  the  proposal,  but  not  yet implemented in the project. - **Yana**, everyone will tell what they didn't implement
+6. Disclaimer: Declares it is your group’s original work. State in detail the differences between this project and the previous one if this project is extended from your previous work. It is good to have point-to-point comparison with screen captures of this project and the previous one. - Everyone tell the difference between similar apps and our app
+7. References - Everyone
 
 
 ## Video recording todo
